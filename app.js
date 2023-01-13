@@ -53,6 +53,17 @@ app.get("/getHistory", (req, res) => {
     });
 });
 
+// delete all history
+app.delete("/deleteHistory", (req, res) => {
+  History.deleteMany()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 app.delete("/deleteCard/:id", (req, res) => {
   Card.findByIdAndDelete(req.params.id)
     .then((result) => {
