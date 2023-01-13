@@ -2,7 +2,7 @@ require("dotenv").config();
 const Card = require("./models/Card");
 const express = require("express");
 const app = express();
-const port = 3008;
+
 const cors = require("cors");
 const History = require("./models/History");
 
@@ -83,6 +83,8 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+const port = process.env.PORT || 3008;
+
 app.listen(port, () => {
-  console.log(`Server running on port : ${port}`);
+  console.log(`Server running on : ${port}`);
 });
